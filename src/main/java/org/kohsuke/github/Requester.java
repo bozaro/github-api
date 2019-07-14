@@ -388,6 +388,9 @@ class Requester {
             return;
         }
         try {
+            if (LOGGER.isLoggable(FINEST)) {
+                LOGGER.log(FINEST, "Request tail api URL: " + tailApiUrl);
+            }
             observed.reset = new Date(Long.parseLong(reset)); // this is madness, storing the date as seconds
             root.updateRateLimit(observed);
         } catch (NumberFormatException e) {
